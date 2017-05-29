@@ -1,0 +1,1 @@
+nuget push package\CheckTest.%1.nupkg     -source "http://nugetsim/NuGetSim" vol5ga5

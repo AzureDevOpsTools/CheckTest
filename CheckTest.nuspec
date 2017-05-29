@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>CheckTest</id>
+    <version>1.0.0-alpha01</version>
+    <title>CheckTest</title>
+    <authors>Terje Sandstrom</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Checks trx files to see if tests have run, and if they have, if the count is above a set limit</description>
+    <projectUrl>http://ptfs.partner.master.int:8080/tfs/Simulation/SoftwareFactory/_git/CheckTest</projectUrl>
+    <summary>Checks trx files to see if tests have run, and if they have, if the count is above a set limit</summary>
+    <language>en-US</language>
+    <releaseNotes>Initial release</releaseNotes>
+    <dependencies>
+     
+    </dependencies>
+    
+  </metadata>
+  <files>
+    <file src="bin\release\CheckTest.dll" target="lib\" />
+   </files>
+</package>

@@ -8,12 +8,13 @@ namespace CheckTest
     {
         public static int Main(string[] args)
         {
-            if (args.Length != 2)
+            if (args.Length <2 || args.Length>3)
             {
                 Console.Error.WriteLine(
-                    "CheckTest PathToTestResultsFolder MinNumberOfTests   --- Check the trx files from PathToTestResultsFolder for number of tests (lines) >= MinNumberOfTests");
+                    "CheckTest PathToTestResultsFolder MinNumberOfTests [-v]  --- Check the trx files from PathToTestResultsFolder for number of tests (lines) >= MinNumberOfTests, option -v enables verbose messages");
                 return -1;
             }
+            bool verbose = args.Length == 3 && args[2] == "-v";
             if (!Directory.Exists(args[0]))
             {
                 Console.Error.WriteLine($"Path for testresults, {args[0]}, not found");
@@ -26,11 +27,17 @@ namespace CheckTest
                 return -3;
             }
             int count = 0;
+            if (verbose)
+                Console.WriteLine($"Found {trxFiles.Length} trx files");
             foreach (var trxfile in trxFiles)
             {
+                if (verbose)
+                    Console.WriteLine($"Scanning file {trxfile}");
                 var lines = File.ReadAllLines(trxfile);
                 var contentline = lines.Single(o => o.Contains("<Counters"));
                 var trxCounter = new TrxCounter(contentline);
+                if (verbose)
+                    Console.WriteLine($"Found {trxCounter.Executed} executed tests");
                 count += trxCounter.Executed;
             }
             int expectedMin = Convert.ToInt32(args[1]);
@@ -44,41 +51,4 @@ namespace CheckTest
 
         }
     }
-
-    public class TrxCounter
-    {
-        private readonly string content;
-        public TrxCounter(string content)
-        {
-            this.content = content;
-            Total = ExtractNumber("total");
-            Executed = ExtractNumber("executed");
-            Passed = ExtractNumber("passed");
-            Failed = ExtractNumber("failed");
-        }
-
-        private  string ExtractNumberStr(string term)
-        {
-            int indexOfTerm = content.IndexOf(term+"=", StringComparison.InvariantCultureIgnoreCase);
-            int lengthOfTerm = term.Length + 2;
-            var startStr = content.Substring(indexOfTerm + lengthOfTerm);
-            int indexOfEndOfTerm = startStr.IndexOf("\"", StringComparison.Ordinal);
-            var termValueStr = content.Substring(indexOfTerm + lengthOfTerm, indexOfEndOfTerm);
-            return termValueStr;
-        }
-
-        private int ExtractNumber(string term)
-        {
-            var str = ExtractNumberStr(term);
-            return Convert.ToInt32(str);
-        }
-
-        public int Total { get; }
-        public int Executed { get; }
-        public int Passed { get; private set; }
-
-        public int Failed { get; set; }
-    }
-
-
 }

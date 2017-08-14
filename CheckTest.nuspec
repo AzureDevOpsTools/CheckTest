@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CheckTest</id>
-    <version>1.0.0-alpha01</version>
+    <version>1.0.0-alpha02</version>
     <title>CheckTest</title>
     <authors>Terje Sandstrom</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -17,6 +17,6 @@
     
   </metadata>
   <files>
-    <file src="bin\release\CheckTest.dll" target="lib\" />
+    <file src="CheckTest\bin\release\CheckTest.exe" target="tools\" />
    </files>
 </package>

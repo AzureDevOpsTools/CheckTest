@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CheckTest</id>
-    <version>1.0.0-alpha02</version>
+    <version>1.1.0</version>
     <title>CheckTest</title>
     <authors>Terje Sandstrom</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <projectUrl>http://ptfs.partner.master.int:8080/tfs/Simulation/SoftwareFactory/_git/CheckTest</projectUrl>
     <summary>Checks trx files to see if tests have run, and if they have, if the count is above a set limit</summary>
     <language>en-US</language>
-    <releaseNotes>Initial release</releaseNotes>
+    <releaseNotes>Added logfiles parsing to trx</releaseNotes>
     <dependencies>
      
     </dependencies>
@@ -18,5 +18,9 @@
   </metadata>
   <files>
     <file src="CheckTest\bin\release\CheckTest.exe" target="tools\" />
-   </files>
+    <file src="ConvertLogFilesToTests\bin\release\ConvertLogFilesToTests.exe" target="tools\" />
+      <file src="ConvertLogFilesToTests\bin\release\System.ValueTuple.dll" target="tools\" />
+      <file src="ConvertLogFilesToTests\bin\release\WrapThat.System.dll" target="tools\" />
+
+  </files>
 </package>

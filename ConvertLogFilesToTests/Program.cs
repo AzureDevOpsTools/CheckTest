@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ConvertLogFilesToTrx.Vstst;
 
 namespace ConvertLogFilesToTrx
@@ -11,32 +7,25 @@ namespace ConvertLogFilesToTrx
     {
         static int Main(string[] args)
         {
-            if (args.Length < 2 || args.Length > 3)
+            if (args.Length < 1 || args.Length > 3)
             {
                 Console.Error.WriteLine(
-                    "ConvertLogFilesToTrx PathToTestResultsFolder MinNumberOfTests [-v]  --- Check the trx files from PathToTestResultsFolder for number of tests (lines) >= MinNumberOfTests, option -v enables verbose messages");
+                    "ConvertLogFilesToTrx logfilename [pattern.config.xml] [-v]  --- Convert logfiles to trx files.  One line per test,    -v enables verbose messages");
                 return -1;
             }
-            bool verbose = args.Length == 3 && args[2] == "-v";
+            bool verbose = (args.Length == 3 && args[2] == "-v") || (args.Length == 2 && args[1] == "-v");
+
+            var converter = args.Length == 1 || (args.Length == 2 && args[1] == "-v") 
+                ? new Converter(args[0], verbose) 
+                : new Converter(args[0], args[1], verbose);
+
             return 0;
         }
 
 
 
-        TestRunType CreateTestRun()
-        {
-            var tr = new TestRunType
-            {
-                id = new Guid().ToString(),
-                name = "whatever",
-                runUser = "whoever",
-            };
-            return tr;
-        }
+       
 
 
     }
-
-    
-
-    }
+}

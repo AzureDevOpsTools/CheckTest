@@ -7,6 +7,19 @@ using System.Xml.Serialization;
 namespace ConvertLogFilesToTests
 {
 
+
+    public interface ITest
+    {
+        string Name { get; }
+        bool Passed { get; }
+        TimeInfo TimeInfo { get; }
+        string Output { get; }
+        string Error { get; }
+
+    }
+
+
+
     // See https://blogs.msdn.microsoft.com/dhopton/2008/06/13/helpful-internals-of-trx-and-vsmdi-files/ for info
 
 
@@ -39,7 +52,7 @@ namespace ConvertLogFilesToTests
 
         public TestRun()
         {
-            this._namespaces = new XmlSerializerNamespaces(new XmlQualifiedName[] {
+            this.namespaces = new XmlSerializerNamespaces(new XmlQualifiedName[] {
                new XmlQualifiedName(string.Empty, "http://microsoft.com/schemas/VisualStudio/TeamTest/2010") // Default Namespace
                 // Add any other namespaces, with prefixes, here.
             });
@@ -65,9 +78,9 @@ namespace ConvertLogFilesToTests
         }
 
         [XmlNamespaceDeclarations]
-        public XmlSerializerNamespaces Namespaces => this._namespaces;
+        public XmlSerializerNamespaces Namespaces => this.namespaces;
 
-        private XmlSerializerNamespaces _namespaces;
+        private XmlSerializerNamespaces namespaces;
 
     }
 

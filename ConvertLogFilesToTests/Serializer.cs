@@ -39,5 +39,16 @@ namespace ConvertLogFilesToTrx
         }
 
 
+        public static T DeserializeObject<T>(string s)
+        {
+            var xmlSerializer = new XmlSerializer(typeof(T));
+
+            using (var textReader = new StringReader(s))
+            {
+                var result = (T)xmlSerializer.Deserialize(textReader);
+                return result;
+            }
+        }
+
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ConvertLogFilesToTrx;
 using NSubstitute;
@@ -55,5 +56,27 @@ namespace ConvertLogFilesToTrxTests
 
             }
         }
+
+        [Test]
+        public void ThatFullConversionWorks()
+        {
+            string written = "";
+            var inpTxt = txt1 + txt2 + txt3;
+            var sut = new Converter("whatever", false);
+            var file = Substitute.For<IFile>();
+            file.ReadAllText(Arg.Any<string>()).Returns(inpTxt);
+            file.WriteAllText(Arg.Any<string>(), Arg.Do<string>(x => written = x));
+            sut.Execute(file);
+           
+            file.Received().WriteAllText(Arg.Any<string>(),Arg.Any<string>());
+           
+
+            Assert.That(written.Length,Is.GreaterThan(0));
+            var count = Regex.Matches(Regex.Escape(written), "<UnitTestResult").Count;
+            Assert.That(count,Is.EqualTo(3));
+
+        }
+
+
     }
 }

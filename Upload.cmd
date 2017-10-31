@@ -1,1 +1,1 @@
-nuget push package\CheckTest.%1.nupkg     -source "http://nugetsim/NuGetSim" vol5ga5
+nuget push package\CheckTest.%1.nupkg     -source "http://nugetsim/NuGetSim/api/v2/package" vol5ga5

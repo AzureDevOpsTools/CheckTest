@@ -16,13 +16,14 @@ namespace CheckTestLog.Test
                     "CheckTest PathToTestLogFile  Check the testlog file from diagnostics log for exceptions");
                 return -1;
             }
-            bool verbose = args.Length == 2 && args[2] == "-v";
+            bool verbose = args.Length == 2 && args[1] == "-v";
             var path = args[0];
-            if (!Directory.Exists(Path.GetDirectoryName(path)))
+            if (verbose)
             {
-                Console.Error.WriteLine($"Path for testlog, {args[0]}, not found");
-                return -2;
+                var currentdir = Directory.GetCurrentDirectory();
+                Console.WriteLine($"Current directory is: {currentdir}");
             }
+
             if (!File.Exists(path))
             {
                 Console.Error.WriteLine($"Testlog file not found, did you enable the /Diag option ?  ({path})");
@@ -33,7 +34,7 @@ namespace CheckTestLog.Test
 
             var parser = new LogParser(log);
 
-            if (parser.Exceptions.Count() > 1)
+            if (parser.Exceptions.Any())
             {
                 foreach (var ex in parser.Exceptions)
                 {

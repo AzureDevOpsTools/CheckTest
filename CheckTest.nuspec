@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CheckTest</id>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <title>CheckTest</title>
     <authors>Terje Sandstrom</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

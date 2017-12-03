@@ -23,6 +23,8 @@
     <file src="ConvertLogFilesToTests\bin\release\ConvertLogFilesToTests.exe" target="tools\" />
     <file src="ConvertLogFilesToTests\bin\release\System.ValueTuple.dll" target="tools\" />
     <file src="ConvertLogFilesToTests\bin\release\WrapThat.System.dll" target="tools\" />
+      <file src="readme.md" target="tools"/>
+      <file src="license" target="tools"/>
 
   </files>
 </package>

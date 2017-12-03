@@ -51,11 +51,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sample.trx.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\CheckTest\CheckTest.csproj">
       <Project>{6adb6e8e-68d4-4500-bc76-a466512a075a}</Project>
       <Name>CheckTest</Name>

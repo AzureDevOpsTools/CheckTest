@@ -1,12 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckTest", "CheckTest\CheckTest.csproj", "{6ADB6E8E-68D4-4500-BC76-A466512A075A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A30C79EF-5071-4A20-B420-DEEB1AF0BFF7}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		CheckTest.nuspec = CheckTest.nuspec
 		pack.cmd = pack.cmd
 		Upload.cmd = Upload.cmd

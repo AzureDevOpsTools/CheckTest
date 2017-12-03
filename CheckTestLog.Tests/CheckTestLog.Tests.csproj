@@ -53,9 +53,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="dorytest.log">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

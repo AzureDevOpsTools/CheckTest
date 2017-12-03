@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		CheckTest.nuspec = CheckTest.nuspec
 		pack.cmd = pack.cmd
-		Upload.cmd = Upload.cmd
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckTest.Test", "CheckTest.Test\CheckTest.Test.csproj", "{5A0ADB9B-D621-413B-970D-189636AA62A4}"

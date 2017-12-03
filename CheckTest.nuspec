@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>CheckTest</id>
-    <version>1.2.1</version>
-    <title>CheckTest</title>
+    <id>KDISim.CheckTest</id>
+    <version>1.3.0</version>
+    <title>KDISim.CheckTest</title>
     <authors>Terje Sandstrom</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+      <copyright>(c) Terje Sandstrom, Kim Vedvik, 2017</copyright>
     <description>Checks trx files to see if tests have run, and if they have, if the count is above a set limit</description>
-    <projectUrl>http://ptfs.partner.master.int:8080/tfs/Simulation/SoftwareFactory/_git/CheckTest</projectUrl>
+    <projectUrl>https://github.com/KDISim/CheckTest</projectUrl>
     <summary>Checks trx files to see if tests have run, and if they have, if the count is above a set limit</summary>
     <language>en-US</language>
     <releaseNotes>Added logfiles parsing to trx</releaseNotes>

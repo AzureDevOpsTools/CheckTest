@@ -12,6 +12,8 @@
     <summary>Checks trx files to see if tests have run, and if they have, if the count is above a set limit</summary>
     <language>en-US</language>
     <releaseNotes>Added logfiles parsing to trx</releaseNotes>
+      <licenseUrl>https://raw.githubusercontent.com/KDISim/CheckTest/master/LICENSE</licenseUrl>
+     
     <dependencies>
      
     </dependencies>
